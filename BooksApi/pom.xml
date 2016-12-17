@@ -9,6 +9,7 @@
 	<description />
 	<modules>
 		<module>../BooksApi-ejb</module>
+		<module>../BooksApi-web</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
