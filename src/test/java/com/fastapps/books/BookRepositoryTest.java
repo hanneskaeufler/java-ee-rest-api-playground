@@ -1,4 +1,4 @@
-package com.fastapps.test.books;
+package com.fastapps.books;
 
 import static org.junit.Assert.*;
 
