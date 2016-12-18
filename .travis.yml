@@ -3,4 +3,4 @@ language: java
 jdk:
   - oraclejdk8
 script:
-  - cd BooksApi && mvn test -Pglassfish-embedded
+  - mvn -f BooksApi/pom.xml test -Pglassfish-embedded
