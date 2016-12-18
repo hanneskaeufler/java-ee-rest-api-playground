@@ -51,14 +51,6 @@
 			<artifactId>arquillian-junit-container</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- Needed to deploy the arquillian container to a remote (local) glassfish 
-			instance -->
-		<dependency>
-			<groupId>org.jboss.arquillian.container</groupId>
-			<artifactId>arquillian-glassfish-remote-3.1</artifactId>
-			<version>1.0.0.Final</version>
-			<scope>test</scope>
-		</dependency>
 		<!-- So the following get me to compile and run a rest endpoint test -->
 		<dependency>
 			<groupId>org.jboss.arquillian.extension</groupId>
@@ -90,4 +82,40 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>glassfish-remote</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<dependencies>
+				<!-- Needed to deploy the arquillian container to a remote (local) glassfish 
+					instance -->
+				<dependency>
+					<groupId>org.jboss.arquillian.container</groupId>
+					<artifactId>arquillian-glassfish-remote-3.1</artifactId>
+					<version>1.0.0.Final</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>glassfish-embedded</id>
+			<dependencies>
+				<!-- Needed to deploy the arquillian container to an embedded glassfish 
+					instance, for instance on travis-ci -->
+				<dependency>
+					<groupId>org.jboss.arquillian.container</groupId>
+					<artifactId>arquillian-glassfish-embedded-3.1</artifactId>
+					<version>1.0.0.Final</version>
+					<scope>test</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish.main.extras</groupId>
+					<artifactId>glassfish-embedded-web</artifactId>
+					<version>3.1.2</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 </project>
