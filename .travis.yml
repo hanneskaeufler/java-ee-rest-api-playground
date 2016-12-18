@@ -2,4 +2,4 @@ language: java
 jdk:
   - oraclejdk8
 script:
-  - cd BooksApi && mvn test
+  - cd BooksApi && mvn test -Pglassfish-embedded
