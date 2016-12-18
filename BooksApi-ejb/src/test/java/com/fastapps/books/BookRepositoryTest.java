@@ -12,7 +12,7 @@ public class BookRepositoryTest {
 	public void test_findOne_returnsBook() {
 		BookRepository bookRepo = new BookRepository();
 		
-		assertNotNull(".findOne() must return a Book instance", bookRepo.findOne());
+		assertNotNull(".findOne() must return a Book instance", bookRepo.findOne(1));
 	}
 
 }
