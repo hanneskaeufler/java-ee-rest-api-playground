@@ -18,7 +18,7 @@ import com.fastapps.books.BookRepository;
 public class BookRepositoryTest {
 	@Deployment
 	public static WebArchive createDeployment() {
-		return ShrinkWrap.create(WebArchive.class, "simple.war")
+		return ShrinkWrap.create(WebArchive.class, "booksapi-ejb-integration-tests.war")
 				.addClass(Book.class)
 				.addClass(BookRepository.class)
 				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
