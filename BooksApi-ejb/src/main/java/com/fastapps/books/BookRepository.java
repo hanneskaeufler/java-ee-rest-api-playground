@@ -6,7 +6,7 @@ import javax.ejb.Stateless;
 public class BookRepository {
 
 	public Book findOne() {
-		return new Book();
+		return new Book().setTitle("Working with Legacy Code");
 	}
 
 }
