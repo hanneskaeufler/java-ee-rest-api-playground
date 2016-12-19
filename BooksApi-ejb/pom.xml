@@ -92,6 +92,11 @@
 				</dependency>
 			</dependencies>
 			<build>
+				<testResources>
+					<testResource>
+						<directory>src/main/resources</directory>
+					</testResource>
+				</testResources>
 				<plugins>
 					<!-- This ties together with arquillian.xml to start the embedded server. 
 						I think. -->
