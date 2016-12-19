@@ -43,12 +43,6 @@
 			<artifactId>arquillian-junit-container</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.jboss.arquillian.container</groupId>
-			<artifactId>arquillian-glassfish-remote-3.1</artifactId>
-			<version>1.0.0.Final</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -61,4 +55,57 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>remote-server</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<dependencies>
+				<!-- Needed to deploy the arquillian container to a remote (local) glassfish 
+					instance -->
+				<dependency>
+					<groupId>org.jboss.arquillian.container</groupId>
+					<artifactId>arquillian-glassfish-remote-3.1</artifactId>
+					<version>1.0.0.Final</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>embedded-server</id>
+			<dependencies>
+				<!-- The actual glassfish embedded server -->
+				<dependency>
+					<groupId>fish.payara.extras</groupId>
+					<artifactId>payara-embedded-all</artifactId>
+					<version>4.1.1.161</version>
+					<scope>test</scope>
+				</dependency>
+				<!-- Needed to deploy the arquillian container to an embedded glassfish 
+					instance, for instance on travis-ci -->
+				<dependency>
+					<groupId>org.jboss.arquillian.container</groupId>
+					<artifactId>arquillian-glassfish-embedded-3.1</artifactId>
+					<version>1.0.0.Final</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<!-- This ties together with arquillian.xml to start the embedded server. 
+						I think. -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<systemProperties>
+								<arquillian.launch>embedded-server</arquillian.launch>
+							</systemProperties>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
