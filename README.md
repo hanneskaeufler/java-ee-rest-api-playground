@@ -9,4 +9,5 @@
 
 ## Testing
 
-Run tests with `mvn test`
+Run tests with `mvn test`. This will run the default profile `remote-server` which requires a glassfish/payara server to be started.
+This is why there is also `mvn test -Pembedded-server` which will boot a payara-embedded instance for each test.
