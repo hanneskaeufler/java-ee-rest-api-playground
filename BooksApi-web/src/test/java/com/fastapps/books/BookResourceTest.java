@@ -1,6 +1,8 @@
 package com.fastapps.books;
 
 import static org.junit.Assert.*;
+import static org.valid4j.matchers.http.HttpResponseMatchers.*;
+import static org.hamcrest.CoreMatchers.*;
 
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
@@ -38,6 +40,8 @@ public class BookResourceTest {
 				.request(MediaType.APPLICATION_JSON)
 				.get();
 
-		assertEquals(200, response.getStatus());
+		assertThat(response, hasStatusCode(200));
+		assertThat(response, hasEntity(equalTo("{\"title\":\"Working with Legacy Code\"}")));
+		response.close();
 	}
 }

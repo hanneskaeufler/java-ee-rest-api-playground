@@ -70,6 +70,20 @@
 			<version>1.0.0.Alpha4</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- We can get pretty nice json assertions with this combination of hamcrest 
+			and http-matchers -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.valid4j</groupId>
+			<artifactId>http-matchers</artifactId>
+			<version>1.1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
