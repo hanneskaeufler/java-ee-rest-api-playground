@@ -3,4 +3,4 @@ language: java
 jdk:
   - oraclejdk8
 script:
-  - mvn -f BooksApi/pom.xml test -Dembedded-server
+  - mvn -f BooksApi/pom.xml test -Pembedded-server
