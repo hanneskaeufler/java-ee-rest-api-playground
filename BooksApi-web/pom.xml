@@ -64,12 +64,6 @@
 			<version>1.0.0.Alpha4</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.jboss.arquillian.extension</groupId>
-			<artifactId>arquillian-rest-client-impl-jaxrs-2</artifactId>
-			<version>1.0.0.Alpha4</version>
-			<scope>test</scope>
-		</dependency>
 		<!-- We can get pretty nice json assertions with this combination of hamcrest 
 			and http-matchers -->
 		<dependency>
