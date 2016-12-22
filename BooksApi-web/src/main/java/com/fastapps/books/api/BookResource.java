@@ -12,13 +12,13 @@ import com.fastapps.books.BookRepository;
 
 @Path("/books")
 public class BookResource {
-	@Inject
-	private BookRepository booksRepo;
+  @Inject
+  private BookRepository booksRepo;
 
-	@GET
-	@Path("{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Book showBook(@PathParam("id") int id) {
-		return booksRepo.findOne(id);
-	}
+  @GET
+  @Path("{id}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Book showBook(@PathParam("id") int id) {
+    return booksRepo.findOne(id);
+  }
 }
