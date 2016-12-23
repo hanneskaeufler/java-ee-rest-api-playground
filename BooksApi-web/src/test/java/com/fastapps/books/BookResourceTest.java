@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 import static org.valid4j.matchers.http.HttpResponseMatchers.hasEntity;
 import static org.valid4j.matchers.http.HttpResponseMatchers.hasStatusCode;
 
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -43,6 +44,18 @@ public class BookResourceTest {
 
 		assertThat(response, hasStatusCode(404));
 		assertThat(response, hasEntity(containsString("not available")));
+		response.close();
+	}
+
+	@Test
+	public void test_editOne_returnsUpdatedBookJson(@ArquillianResteasyResource("api") WebTarget webTarget) {
+		Entity<String> book = Entity.entity("{\"title\":\"Growing object oriented software\"}",
+				MediaType.APPLICATION_JSON);
+
+		Response response = webTarget.path("books/1").request(MediaType.APPLICATION_JSON).put(book);
+
+		assertThat(response, hasStatusCode(200));
+		assertThat(response, hasEntity(equalTo("{\"title\":\"Growing object oriented software\"}")));
 		response.close();
 	}
 }
