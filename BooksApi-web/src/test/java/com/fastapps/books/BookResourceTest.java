@@ -58,4 +58,14 @@ public class BookResourceTest {
 		assertThat(response, hasEntity(equalTo("{\"title\":\"Growing object oriented software\"}")));
 		response.close();
 	}
+
+	@Test
+	public void test_editOne_returnsErrorForEmptyTitle(@ArquillianResteasyResource("api") WebTarget webTarget) {
+		Entity<String> book = Entity.entity("{\"title\":\"\"}", MediaType.APPLICATION_JSON);
+
+		Response response = webTarget.path("books/1").request(MediaType.APPLICATION_JSON).put(book);
+
+		assertThat(response, hasStatusCode(400));
+		response.close();
+	}
 }

@@ -32,6 +32,11 @@
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.3.1.Final</version>
+		</dependency>
 		<!-- This enables json serialization I think -->
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
