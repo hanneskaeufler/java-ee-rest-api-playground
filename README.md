@@ -41,3 +41,7 @@ Getting this to work requires reading of the entire internet. Here are some link
 ### Exception to Response Mapping
 
 * https://jersey.java.net/documentation/latest/representations.html#d0e6754
+
+### Validation
+
+* https://github.com/jersey/jersey/tree/master/examples/bean-validation-webapp
