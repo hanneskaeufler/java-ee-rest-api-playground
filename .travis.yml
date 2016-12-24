@@ -2,6 +2,8 @@ sudo: false
 language: java
 jdk:
   - oraclejdk8
+before_install:
+  - rvm install ruby-2.2.0
 before_script:
   - gem install bundler && bundle install && bundle exec danger
 script:
