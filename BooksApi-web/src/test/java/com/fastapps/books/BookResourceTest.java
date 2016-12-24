@@ -66,6 +66,7 @@ public class BookResourceTest {
 		Response response = webTarget.path("books/1").request(MediaType.APPLICATION_JSON).put(book);
 
 		assertThat(response, hasStatusCode(400));
+		assertThat(response, hasEntity(containsString("not empty")));
 		response.close();
 	}
 }
