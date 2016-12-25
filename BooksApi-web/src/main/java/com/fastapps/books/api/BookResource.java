@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.fastapps.books.Book;
 import com.fastapps.books.BookRepository;
+import com.fastapps.books.NotFoundException;
 
 @Path("/books")
 public class BookResource {
@@ -18,7 +19,7 @@ public class BookResource {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Book showBook(@PathParam("id") int id) {
+	public Book showBook(@PathParam("id") int id) throws NotFoundException {
 		return booksRepo.findOne(id);
 	}
 }
