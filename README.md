@@ -30,3 +30,7 @@ Getting this to work requires reading of the entire internet. Here are some link
 * https://github.com/payara/Payara-Examples/tree/master/rest-examples
 * https://github.com/payara/Payara-Examples/tree/master/Java-EE/arquillian-example with http://blog.payara.fish/using-payara-embedded-as-an-arquillian-container-inside-intellij-idea
 * https://github.com/javaee-samples/javaee7-samples/tree/master/jaxrs/jaxrs-endpoint
+
+### Exception to Response Mapping
+
+* https://jersey.java.net/documentation/latest/representations.html#d0e6754
