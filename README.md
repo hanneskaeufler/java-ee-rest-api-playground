@@ -23,6 +23,13 @@ If the tests fail but you still want to deploy for some crazy reason 😈, you c
 Run tests with `mvn -f BooksApi/pom.xml  test`. This will run the default profile `remote-server` which requires a glassfish/payara server to be started.
 This is why there is also `mvn -f BooksApi/pom.xml test -Pembedded-server` which will boot a payara-embedded instance for each test.
 
+## "Uummm What"s
+
+The were loads of moments where I was conf
+
+* Entities must have setters, otherwise serialization doesn't work. [Boo](http://softwareengineering.stackexchange.com/questions/21802/when-are-getters-and-setters-justified)
+* The booksapi-web-integration-tests.war did not expose the endpoint that I expected. I forgot the class with @ApplicationPath annotation in the deployment. [fix](https://github.com/hanneskaeufler/java-ee-rest-api-playground/commit/fc86221d63ee58cfb64f0ea17841375afcd23638)
+
 ## References
 
 Getting this to work requires reading of the entire internet. Here are some links that helped:
@@ -34,3 +41,7 @@ Getting this to work requires reading of the entire internet. Here are some link
 ### Exception to Response Mapping
 
 * https://jersey.java.net/documentation/latest/representations.html#d0e6754
+
+### Validation
+
+* https://github.com/jersey/jersey/tree/master/examples/bean-validation-webapp

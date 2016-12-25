@@ -1,7 +1,9 @@
 package com.fastapps.books.api;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -21,5 +23,12 @@ public class BookResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Book showBook(@PathParam("id") int id) throws NotFoundException {
 		return booksRepo.findOne(id);
+	}
+
+	@PUT
+	@Path("{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Book editBook(@PathParam("id") int id, @Valid Book book) {
+		return book;
 	}
 }
