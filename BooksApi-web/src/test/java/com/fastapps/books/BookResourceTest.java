@@ -21,6 +21,7 @@ import org.junit.runner.RunWith;
 
 import com.fastapps.books.api.BookResource;
 import com.fastapps.books.api.BooksApiApplication;
+import com.fastapps.books.api.NotFoundExceptionMapper;
 
 @RunWith(Arquillian.class)
 public class BookResourceTest {
@@ -29,7 +30,8 @@ public class BookResourceTest {
 	public static WebArchive createDeployment() {
 		return ShrinkWrap.create(WebArchive.class, "booksapi-web-integration-tests.war").addClass(Book.class)
 				.addClass(BookRepository.class).addClass(BookResource.class).addClass(NotFoundException.class)
-				.addClass(BooksApiApplication.class).addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+				.addClass(BooksApiApplication.class).addClass(NotFoundExceptionMapper.class)
+				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 	}
 
 	@Test
