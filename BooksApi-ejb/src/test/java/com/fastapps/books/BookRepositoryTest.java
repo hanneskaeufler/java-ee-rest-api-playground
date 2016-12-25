@@ -17,9 +17,8 @@ import org.junit.runner.RunWith;
 public class BookRepositoryTest {
 	@Deployment
 	public static WebArchive createDeployment() {
-		return ShrinkWrap.create(WebArchive.class, "booksapi-ejb-integration-tests.war").addClass(Book.class)
-				.addClass(BookRepository.class).addClass(NotFoundException.class)
-				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+		return ShrinkWrap.create(WebArchive.class, "booksapi-ejb-integration-tests.war")
+				.addPackages(true, "com.fastapps.books").addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 	}
 
 	@Inject
